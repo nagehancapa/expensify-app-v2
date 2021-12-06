@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ExpenseDashboardPage exact={true} />} />
         <Route path="/create" element={<AddExpensePage />} />
-        <Route path="/edit" element={<EditExpensePage />} />
+        <Route path="/edit/:id" element={<EditExpensePage />} />
         <Route path="/help" element={<HelpPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
