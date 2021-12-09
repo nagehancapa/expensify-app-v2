@@ -1,16 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectExpenses } from "../store/expenses/selectors";
-import { selectFilters } from "../store/filters/selectors";
+import { visibleExpenses } from "../store/expenses/selectors";
+import ExpenseListItem from "./ExpenseListItem";
 
 const ExpenseList = (props) => {
-  const expenses = useSelector(selectExpenses);
-  const filters = useSelector(selectFilters);
+  const expenses = useSelector(visibleExpenses);
+
   return (
     <div>
       <h1>Expense List</h1>
-      {filters.text}
-      {expenses.length}
+      {expenses.map((expense) => {
+        return <ExpenseListItem key={expense.id} {...expense} />;
+      })}
     </div>
   );
 };

@@ -1,10 +1,11 @@
+export const selectExpenses = (state) => state.expenses;
+export const visibleExpenses = (state) =>
+  getVisibleExpenses(state.expenses, state.filters);
+
 // Get visible expenses
-// destructure filters
+// destructured filters
 // const getVisibleExpenses = (expenses, filters)
-export const getVisibleExpenses = (
-  expenses,
-  { text, sortBy, startDate, endDate }
-) => {
+const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
   return expenses
     .filter((expense) => {
       const startDateMatch =
@@ -24,8 +25,8 @@ export const getVisibleExpenses = (
         return a.createdAt < b.createdAt ? 1 : -1;
       } else if (sortBy === "amount") {
         return a.amount < b.amount ? 1 : -1;
+      } else {
+        return null;
       }
     });
 };
-
-export const selectExpenses = (state) => state.expenses;
