@@ -27,3 +27,5 @@ export const getVisibleExpenses = (
       }
     });
 };
+
+export const selectExpenses = (state) => state.expenses;

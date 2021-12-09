@@ -1,19 +1,18 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
+import { selectExpenses } from "../store/expenses/selectors";
+import { selectFilters } from "../store/filters/selectors";
 
-const ExpenseList = (props) => (
-  <div>
-    <h1>Expense List</h1>
-    {props.filters.text}
-    {props.expenses.length}
-  </div>
-);
-
-const mapStateToProps = (state) => {
-  return {
-    expenses: state.expenses,
-    filters: state.filters,
-  };
+const ExpenseList = (props) => {
+  const expenses = useSelector(selectExpenses);
+  const filters = useSelector(selectFilters);
+  return (
+    <div>
+      <h1>Expense List</h1>
+      {filters.text}
+      {expenses.length}
+    </div>
+  );
 };
 
-export default connect(mapStateToProps)(ExpenseList);
+export default ExpenseList;
