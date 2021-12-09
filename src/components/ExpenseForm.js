@@ -9,6 +9,21 @@ const ExpenseForm = () => {
   const [amount, setAmount] = useState("");
   const [createdAt, setCreatedAt] = useState(new Date());
 
+  function onAmountChange(e) {
+    const regex = /^\d{1,}(\.\d{0,2})?$/;
+    const amount = e.target.value;
+    if (!amount || amount.match(regex)) {
+      setAmount(amount);
+    } else {
+    }
+  }
+
+  function onDateChange(createdAt) {
+    if (createdAt) {
+      setCreatedAt(createdAt);
+    }
+  }
+
   return (
     <div>
       <form>
@@ -23,17 +38,9 @@ const ExpenseForm = () => {
           type="text"
           placeholder="Amount"
           value={amount}
-          onChangeText={(e) => {
-            //let userInput = amount;
-            //if (!amount || amount.match(/^[0-9]{1,2}([.][0-9]{1,2})?$/)) {
-            //(/^\d{1,}(\.\d{0,2})?$/)) {
-            setAmount(e.target.value);
-            //} else {
-            // console.log("wtf");
-            //}
-          }}
+          onChange={onAmountChange}
         />
-        <DatePicker value={createdAt} onChange={(date) => setCreatedAt(date)} />
+        <DatePicker value={createdAt} onChange={onDateChange} />
         <textarea
           placeholder="Add a note for your expense (optional)"
           value={note}
