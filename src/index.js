@@ -6,16 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import store from "./store";
 import { Provider } from "react-redux";
 import { addExpense } from "./store/expenses/actions";
-import { setTextFilter } from "./store/filters/actions";
 import "./styles/styles.scss";
 
 store.dispatch(addExpense({ description: "Water bill", amount: 4500 }));
-store.dispatch(addExpense({ description: "Gas bill" }));
-store.dispatch(setTextFilter("water"));
-
-setTimeout(() => {
-  store.dispatch(setTextFilter("bill"));
-}, 3000);
+store.dispatch(addExpense({ description: "Gas bill", createdAt: 1000 }));
+store.dispatch(addExpense({ description: "Rent", amount: 109500 }));
 
 console.log(store.getState());
 
