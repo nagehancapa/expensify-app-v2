@@ -1,19 +1,16 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { removeExpense } from "../store/expenses/actions";
+import { Link } from "react-router-dom";
 
 // destructured props object
-const ExpenseListItem = ({ id, description, amount, createdAt }) => {
-  const dispatch = useDispatch();
-  return (
-    <div>
+const ExpenseListItem = ({ id, description, amount, createdAt }) => (
+  <div>
+    <Link to={`/edit/${id}`}>
       <h3>{description}</h3>
-      <p>
-        {amount} - {createdAt}
-      </p>
-      <button onClick={() => dispatch(removeExpense({ id }))}>Remove</button>
-    </div>
-  );
-};
+    </Link>
+    <p>
+      {amount} - {createdAt}
+    </p>
+  </div>
+);
 
 export default ExpenseListItem;

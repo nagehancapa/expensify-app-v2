@@ -4,10 +4,16 @@ import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
 
 const ExpenseForm = (props) => {
-  const [description, setDescription] = useState("");
-  const [note, setNote] = useState("");
-  const [amount, setAmount] = useState("");
-  const [createdAt, setCreatedAt] = useState(new Date());
+  const [description, setDescription] = useState(
+    props.expense ? props.expense.description : ""
+  );
+  const [note, setNote] = useState(props.expense ? props.expense.note : "");
+  const [amount, setAmount] = useState(
+    props.expense ? (props.expense.amount / 100).toString() : ""
+  );
+  const [createdAt, setCreatedAt] = useState(
+    props.expense ? new Date(props.expense.createdAt) : new Date()
+  );
   const [error, setError] = useState("");
 
   function onAmountChange(e) {
