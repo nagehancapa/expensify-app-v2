@@ -3,11 +3,12 @@ import DatePicker from "react-date-picker";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [description, setDescription] = useState("");
   const [note, setNote] = useState("");
   const [amount, setAmount] = useState("");
   const [createdAt, setCreatedAt] = useState(new Date());
+  const [error, setError] = useState("");
 
   function onAmountChange(e) {
     const regex = /^\d{1,}(\.\d{0,2})?$/;
@@ -24,9 +25,25 @@ const ExpenseForm = () => {
     }
   }
 
+  function onSubmit(e) {
+    e.preventDefault();
+    if (!description || !amount) {
+      setError("Please provide description and amount.");
+    } else {
+      setError("");
+      props.onSubmit({
+        description,
+        amount: parseFloat(amount, 10) * 100,
+        createdAt: createdAt.setTime(createdAt.getTime()),
+        note,
+      });
+    }
+  }
+
   return (
     <div>
-      <form>
+      <form onSubmit={onSubmit}>
+        {error && <p>{error}</p>}
         <input
           type="text"
           placeholder="Description"
