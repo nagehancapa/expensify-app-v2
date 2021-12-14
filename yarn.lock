@@ -2182,6 +2182,18 @@
   "resolved" "https://registry.npmjs.org/@wojtekmaj/date-utils/-/date-utils-1.0.3.tgz"
   "version" "1.0.3"
 
+"@wojtekmaj/react-daterange-picker@^3.3.2":
+  "integrity" "sha512-/6e9oh+5NO5Jo2eRx5ybO6WodDwSpuQNVrlsHzjCEzWgpLKUXEQR64ci73/KOVNXOy+sMyDW+0CxDTIzhWqm8g=="
+  "resolved" "https://registry.npmjs.org/@wojtekmaj/react-daterange-picker/-/react-daterange-picker-3.3.2.tgz"
+  "version" "3.3.2"
+  dependencies:
+    "make-event-props" "^1.1.0"
+    "merge-class-names" "^1.1.1"
+    "prop-types" "^15.6.0"
+    "react-calendar" "^3.3.1"
+    "react-date-picker" "^8.3.3"
+    "react-fit" "^1.0.3"
+
 "@xtuc/ieee754@^1.2.0":
   "integrity" "sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA=="
   "resolved" "https://registry.npmjs.org/@xtuc/ieee754/-/ieee754-1.2.0.tgz"
@@ -9301,7 +9313,7 @@
     "merge-class-names" "^1.1.1"
     "prop-types" "^15.6.0"
 
-"react-date-picker@^8.3.6":
+"react-date-picker@^8.3.3", "react-date-picker@^8.3.6":
   "integrity" "sha512-c1rThf0jSKROoSGLpUEPtcC8VE+XoVgqxh+ng9aLYQvjDMGWQBgoat6Qrj8nRVzvCPpdXV4jqiCB3z2vVVuseA=="
   "resolved" "https://registry.npmjs.org/react-date-picker/-/react-date-picker-8.3.6.tgz"
   "version" "8.3.6"

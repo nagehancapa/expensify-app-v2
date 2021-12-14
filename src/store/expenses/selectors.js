@@ -8,10 +8,9 @@ export const visibleExpenses = (state) =>
 const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
   return expenses
     .filter((expense) => {
-      const startDateMatch =
-        typeof startDate !== "number" || expense.createdAt >= startDate;
-      const endDateMatch =
-        typeof endDate !== "number" || expense.createdAt <= endDate;
+      const createdAtMoment = new Date(expense.createdAt);
+      const startDateMatch = startDate ? createdAtMoment >= startDate : true;
+      const endDateMatch = endDate ? createdAtMoment <= endDate : true;
       const textMatch = expense.description
         .toLowerCase()
         .includes(text.toLowerCase());
