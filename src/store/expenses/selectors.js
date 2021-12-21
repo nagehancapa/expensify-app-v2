@@ -5,7 +5,10 @@ export const visibleExpenses = (state) =>
 // Get visible expenses
 // destructured filters
 // const getVisibleExpenses = (expenses, filters)
-const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
+export const getVisibleExpenses = (
+  expenses,
+  { text, sortBy, startDate, endDate }
+) => {
   return expenses
     .filter((expense) => {
       const createdAtMoment = new Date(expense.createdAt);
