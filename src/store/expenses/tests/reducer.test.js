@@ -1,5 +1,5 @@
 import reducer from "../reducer";
-import expenses from "../../fixtures/expenses";
+import expenses from "../../../fixtures/expenses";
 
 test("should set default state", () => {
   const state = reducer(undefined, { type: "@@INIT" });

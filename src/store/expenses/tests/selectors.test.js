@@ -1,5 +1,5 @@
 import { getVisibleExpenses } from "../selectors";
-import expenses from "../../fixtures/expenses";
+import expenses from "../../../fixtures/expenses";
 
 test("should filter by text value", () => {
   // filters key's values are default values except text
