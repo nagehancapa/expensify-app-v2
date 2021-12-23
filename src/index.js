@@ -7,6 +7,8 @@ import store from "./store";
 import { Provider } from "react-redux";
 import { addExpense } from "./store/expenses/actions";
 import "./styles/styles.scss";
+import "react-date-picker/dist/DatePicker.css";
+import "react-calendar/dist/Calendar.css";
 
 store.dispatch(addExpense({ description: "Water bill", amount: 4500 }));
 store.dispatch(addExpense({ description: "Gas bill", createdAt: 1000 }));
