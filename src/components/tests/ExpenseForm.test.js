@@ -28,7 +28,7 @@ test("should render error for invalid form submission", () => {
   wrapper.find("form").simulate("submit", {
     preventDefault: () => {},
   });
-  // console.log(toJson(wrapper.find("form").find("p").children()));
-  const error = wrapper.find("form").find("p").children();
+  // console.log(toJson(wrapper.find("p")));
+  const error = wrapper.find("p").children();
   expect(error.isEmptyRender()).toBe(false);
 });
