@@ -2,6 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import ExpenseForm from "../ExpenseForm";
 import expenses from "../../fixtures/expenses";
+// import toJson from "enzyme-to-json";
 
 beforeAll(() => {
   jest.useFakeTimers("modern");
@@ -20,4 +21,14 @@ test("should render ExpenseForm correctly", () => {
 test("should render ExpenseForm correctly with expense data", () => {
   const wrapper = shallow(<ExpenseForm expense={expenses[1]} />);
   expect(wrapper).toMatchSnapshot();
+});
+
+test("should render error for invalid form submission", () => {
+  const wrapper = shallow(<ExpenseForm />);
+  wrapper.find("form").simulate("submit", {
+    preventDefault: () => {},
+  });
+  // console.log(toJson(wrapper.find("form").find("p").children()));
+  const error = wrapper.find("form").find("p").children();
+  expect(error.isEmptyRender()).toBe(false);
 });
