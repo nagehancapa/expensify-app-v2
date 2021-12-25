@@ -74,3 +74,37 @@ test("should set note on textare change test with testing library", () => {
   userEvent.type(textarea, "second note");
   expect(screen.getByPlaceholderText(/Add a note/)).toHaveValue("second note");
 });
+
+test("should set amount if valid input", () => {
+  const value = "23.50";
+  const wrapper = shallow(<ExpenseForm />);
+  wrapper.find("input").at(1).simulate("change", {
+    target: { value },
+  });
+  // console.log(wrapper.find("input").get(1).props.value);
+  expect(wrapper.find("input").get(1).props.value).toBe(value);
+});
+
+test("should set amount if valid input test with testing library", () => {
+  render(<ExpenseForm />);
+  const input = screen.getByPlaceholderText("Amount");
+  userEvent.type(input, "32.50");
+  expect(screen.getByPlaceholderText("Amount")).toHaveValue("32.50");
+});
+
+test("should not set amount if invalid input", () => {
+  const value = "12.122";
+  const wrapper = shallow(<ExpenseForm />);
+  wrapper.find("input").at(1).simulate("change", {
+    target: { value },
+  });
+  // console.log(wrapper.find("input").get(1).props);
+  expect(wrapper.find("input").get(1).props.value).toBe("");
+});
+
+test("should not set amount if invalid input test with testing library", () => {
+  render(<ExpenseForm />);
+  const input = screen.getByPlaceholderText("Amount");
+  userEvent.type(input, "12.122");
+  expect(screen.getByPlaceholderText("Amount")).toHaveValue("12.12");
+});
