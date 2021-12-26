@@ -108,3 +108,29 @@ test("should not set amount if invalid input test with testing library", () => {
   userEvent.type(input, "12.122");
   expect(screen.getByPlaceholderText("Amount")).toHaveValue("12.12");
 });
+
+test("should call onSubmit prop for valid form submission", () => {
+  const onSubmitSpy = jest.fn();
+  const wrapper = shallow(
+    <ExpenseForm expense={expenses[0]} onSubmit={onSubmitSpy} />
+  );
+  wrapper.find("form").simulate("submit", {
+    preventDefault: () => {},
+  });
+  const error = wrapper.find("p").children();
+  expect(error.isEmptyRender()).toBe(true);
+  expect(onSubmitSpy).toHaveBeenLastCalledWith({
+    description: expenses[0].description,
+    amount: expenses[0].amount,
+    note: expenses[0].note,
+    createdAt: expenses[0].createdAt,
+  });
+});
+
+test("should set new date on date change", () => {
+  const wrapper = shallow(<ExpenseForm />);
+  wrapper.find("DatePicker").prop("onChange")(new Date());
+  // const datepicker = wrapper.find("DatePicker");
+  // console.log(datepicker.get(0).props.value);
+  expect(wrapper.find("DatePicker").get(0).props.value).toEqual(new Date());
+});
