@@ -8,15 +8,21 @@ const AddExpensePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  function onSubmit(expense) {
+    dispatch(addExpense(expense));
+    navigate("/");
+  }
+
   return (
     <div>
       <h1>Add Expense</h1>
-      <ExpenseForm
+      {/*<ExpenseForm
         onSubmit={(expense) => {
           dispatch(addExpense(expense));
           navigate("/");
         }}
-      />
+      /> */}
+      <ExpenseForm onSubmit={onSubmit} />
     </div>
   );
 };
