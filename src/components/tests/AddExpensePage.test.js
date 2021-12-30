@@ -34,8 +34,7 @@ test("should render AddExpensePage correctly", () => {
 test("should handle onSubmit", () => {
   const dispatch = jest.fn();
   useDispatch.mockReturnValue(dispatch);
-  const onSubmitSpy = jest.fn();
-  const wrapper = shallow(<AddExpensePage onSubmit={onSubmitSpy} />);
+  const wrapper = shallow(<AddExpensePage />);
   wrapper.find("ExpenseForm").prop("onSubmit")(expenses[1]);
   expect(dispatch).toHaveBeenCalled();
   expect(mockedUsedNavigate).toHaveBeenLastCalledWith("/");
