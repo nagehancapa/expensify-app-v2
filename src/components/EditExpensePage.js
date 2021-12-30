@@ -12,23 +12,20 @@ const EditExpensePage = (props) => {
   const navigate = useNavigate();
   const expense = expenses.find((expense) => expense.id === id);
 
+  function onSubmit(expense) {
+    dispatch(editExpense(id, expense));
+    navigate("/");
+  }
+
+  function onClick() {
+    dispatch(removeExpense({ id }));
+    navigate("/");
+  }
+
   return (
     <div>
-      <ExpenseForm
-        expense={expense}
-        onSubmit={(expense) => {
-          dispatch(editExpense(id, expense));
-          navigate("/");
-        }}
-      />
-      <button
-        onClick={() => {
-          dispatch(removeExpense({ id }));
-          navigate("/");
-        }}
-      >
-        Remove
-      </button>
+      <ExpenseForm expense={expense} onSubmit={onSubmit} />
+      <button onClick={onClick}>Remove</button>
     </div>
   );
 };

@@ -68,7 +68,7 @@ test("should set note on textarea change", () => {
   expect(wrapper.find("textarea").get(0).props.value).toBe(value);
 });
 
-test("should set note on textare change test with testing library", () => {
+test("should set note on textarea change test with testing library", () => {
   render(<ExpenseForm />);
   const textarea = screen.getByPlaceholderText(/Add a note/);
   userEvent.type(textarea, "second note");
