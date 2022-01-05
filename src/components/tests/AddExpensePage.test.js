@@ -38,6 +38,45 @@ test("should handle onSubmit", () => {
   wrapper.find("ExpenseForm").prop("onSubmit")(expenses[1]);
   expect(dispatch).toHaveBeenCalled();
   expect(mockedUsedNavigate).toHaveBeenLastCalledWith("/");
-  // expect(onSubmitSpy).toHaveBeenLastCalledWith(expenses[1]);
-  // expect(dispatch).toHaveBeenLastCalledWith(addExpense(expenses[1]));
 });
+
+// import React from "react";
+// import { mount } from "enzyme";
+// import { createStore } from "redux";
+// import { Provider } from "react-redux";
+// import AddExpensePage from "../AddExpensePage";
+
+// import { addExpense } from "../../store/expenses/actions";
+// import reducer from "../../store/expenses/reducer";
+// import expenses from "../../fixtures/expenses";
+// import "jest-canvas-mock";
+
+// const getWrapper = (
+//   mockStore = createStore(reducer, { expense: expenses[1] })
+// ) =>
+//   mount(
+//     <Provider store={mockStore}>
+//       <AddExpensePage />
+//     </Provider>
+//   );
+
+// const mockedUsedNavigate = jest.fn();
+
+// jest.mock("react-router-dom", () => ({
+//   ...jest.requireActual("react-router-dom"),
+//   useNavigate: () => mockedUsedNavigate,
+// }));
+
+// test("should render AddExpensePage correctly", () => {
+//   const wrapper = getWrapper();
+//   expect(wrapper).toMatchSnapshot();
+// });
+
+// test("should dispatch the correct action on onSubmit", () => {
+//   const mockStore = createStore(reducer, { expense: expenses[1] });
+//   mockStore.dispatch = jest.fn();
+//   const wrapper = getWrapper(mockStore);
+//   wrapper.find("ExpenseForm").prop("onSubmit")(expenses[1]);
+//   expect(mockStore.dispatch).toHaveBeenCalledWith(addExpense(expenses[1]));
+//   expect(mockedUsedNavigate).toHaveBeenLastCalledWith("/");
+// });
