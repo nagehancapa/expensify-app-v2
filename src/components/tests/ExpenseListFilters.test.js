@@ -16,6 +16,15 @@ import {
 import DateRangePicker from "@wojtekmaj/react-daterange-picker/dist/DateRangePicker";
 import { act } from "react-dom/test-utils";
 
+beforeAll(() => {
+  jest.useFakeTimers("modern");
+  jest.setSystemTime(new Date("January 1, 1970"));
+});
+
+afterAll(() => {
+  jest.useRealTimers();
+});
+
 let getWrapper, wrapper, mockStore;
 
 beforeEach(() => {
@@ -52,7 +61,7 @@ test("should handle text change", () => {
   wrapper.find("input").at(0).simulate("change", {
     target: { value },
   });
-  expect(mockStore.dispatch).toHaveBeenCalledWith(setTextFilter(value));
+  expect(mockStore.dispatch).toHaveBeenLastCalledWith(setTextFilter(value));
 });
 
 test("should sort by date", () => {
@@ -72,13 +81,12 @@ test("should sort by amount", () => {
 });
 
 test("should handle date changes", () => {
-  const date1 = new Date("January 1, 1970");
-  const date2 = new Date("January 1, 1970");
-  const startDate = date1.setDate(date1.getFullYear() + 4);
-  const endDate = date2.setDate(date2.getFullYear() + 8);
+  const date = new Date();
+  const startDate = date.setDate(date.getFullYear() + 4);
+  const endDate = date.setDate(date.getFullYear() + 8);
   act(() => {
     wrapper.find(DateRangePicker).prop("onChange")([startDate, endDate]);
   });
   expect(mockStore.dispatch).toHaveBeenCalledWith(setStartDate(startDate));
-  expect(mockStore.dispatch).toHaveBeenCalledWith(setEndDate(endDate));
+  expect(mockStore.dispatch).toHaveBeenLastCalledWith(setEndDate(endDate));
 });
