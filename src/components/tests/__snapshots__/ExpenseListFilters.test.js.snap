@@ -5,7 +5,7 @@ exports[`should render ExpenseListFilters correctly 1`] = `
   store={
     Object {
       "@@observable": [Function],
-      "dispatch": [Function],
+      "dispatch": [MockFunction],
       "getState": [Function],
       "replaceReducer": [Function],
       "subscribe": [Function],

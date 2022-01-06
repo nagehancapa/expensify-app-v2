@@ -37,10 +37,15 @@ test("should handle edit expense", () => {
   const dispatch = jest.fn();
   useDispatch.mockReturnValue(dispatch);
   const wrapper = shallow(<EditExpensePage expense={dummyExpenses[2]} />);
+  // const wrapper = shallow(<EditExpensePage expense={expenses[2]} />);
   wrapper.find("ExpenseForm").prop("onSubmit")(dummyExpenses[2]);
+  // wrapper.find("ExpenseForm").prop("onSubmit")(expenses[2]);
   expect(dispatch).toHaveBeenCalled();
   expect(mockedUsedNavigate).toHaveBeenLastCalledWith("/");
   expect(dispatch).toHaveBeenLastCalledWith(editExpense(dummyExpenses[2]));
+  // expect(dispatch).toHaveBeenLastCalledWith(
+  //   editExpense(expenses[2].id, expenses[2])
+  // );
 });
 
 test("should handle remove expense", () => {

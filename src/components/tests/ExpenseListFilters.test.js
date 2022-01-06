@@ -1,50 +1,36 @@
-// import React from "react";
-// import * as reactRedux from "react-redux";
-// import { shallow } from "enzyme";
-// import ExpenseListFilters from "../ExpenseListFilters";
-// import { filters, altFilters } from "../../fixtures/filters";
-
-// const useSelectorMock = jest.spyOn(reactRedux, "useSelector");
-// const useDispatch = jest.spyOn(reactRedux, "useDispatch");
-
-// jest.mock("react-redux", () => ({
-//   ...jest.requireActual("react-redux"),
-//   useDispatch: jest.fn(),
-// }));
-
-// let onTextChange, onSortChange, onDateChange, wrapper;
-
-// beforeEach(() => {
-//   onTextChange = jest.fn();
-//   onSortChange = jest.fn();
-//   onDateChange = jest.fn();
-//   wrapper = shallow(<ExpenseListFilters filters={filters} />);
-//   useSelectorMock.mockClear();
-//   useDispatch.mockClear();
-// });
-
-// test("should render ExpenseListFilters correctly", () => {
-//   expect(wrapper).toMatchSnapshot();
-// });
-
+import React from "react";
 import ExpenseListFilters from "../ExpenseListFilters";
 import { createStore } from "redux";
-import { screen, render } from "@testing-library/react";
 import { Provider } from "react-redux";
-import React from "react";
 import { filters, altFilters } from "../../fixtures/filters";
-import { shallow, mount } from "enzyme";
+import { mount } from "enzyme";
 import reducer from "../../store/filters/reducer";
 import "jest-canvas-mock";
+import {
+  setTextFilter,
+  sortByDate,
+  sortByAmount,
+  setStartDate,
+  setEndDate,
+} from "../../store/filters/actions";
+import DateRangePicker from "@wojtekmaj/react-daterange-picker/dist/DateRangePicker";
+import { act } from "react-dom/test-utils";
 
-test("should render ExpenseListFilters correctly", () => {
-  const getWrapper = (mockStore = createStore(reducer, { filters })) =>
+let getWrapper, wrapper, mockStore;
+
+beforeEach(() => {
+  getWrapper = (mockStore = createStore(reducer, { filters })) =>
     mount(
       <Provider store={mockStore}>
         <ExpenseListFilters />
       </Provider>
     );
-  const wrapper = getWrapper();
+  mockStore = createStore(reducer, { filters });
+  mockStore.dispatch = jest.fn();
+  wrapper = getWrapper(mockStore);
+});
+
+test("should render ExpenseListFilters correctly", () => {
   expect(wrapper).toMatchSnapshot();
 });
 
@@ -59,4 +45,40 @@ test("should render ExpenseListFilters with alt data correctly", () => {
     );
   const wrapper = getWrapper();
   expect(wrapper).toMatchSnapshot();
+});
+
+test("should handle text change", () => {
+  const value = "rent";
+  wrapper.find("input").at(0).simulate("change", {
+    target: { value },
+  });
+  expect(mockStore.dispatch).toHaveBeenCalledWith(setTextFilter(value));
+});
+
+test("should sort by date", () => {
+  const value = "date";
+  wrapper.find("select").simulate("change", {
+    target: { value },
+  });
+  expect(mockStore.dispatch).toHaveBeenCalledWith(sortByDate());
+});
+
+test("should sort by amount", () => {
+  const value = "amount";
+  wrapper.find("select").simulate("change", {
+    target: { value },
+  });
+  expect(mockStore.dispatch).toHaveBeenCalledWith(sortByAmount());
+});
+
+test("should handle date changes", () => {
+  const date1 = new Date("January 1, 1970");
+  const date2 = new Date("January 1, 1970");
+  const startDate = date1.setDate(date1.getFullYear() + 4);
+  const endDate = date2.setDate(date2.getFullYear() + 8);
+  act(() => {
+    wrapper.find(DateRangePicker).prop("onChange")([startDate, endDate]);
+  });
+  expect(mockStore.dispatch).toHaveBeenCalledWith(setStartDate(startDate));
+  expect(mockStore.dispatch).toHaveBeenCalledWith(setEndDate(endDate));
 });
