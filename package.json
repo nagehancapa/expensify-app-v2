@@ -87,10 +87,11 @@
     "webpack-dev-server": "3.11.1"
   },
   "scripts": {
-    "start": "react-scripts build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "startserver": "node server/server.js",
     "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
