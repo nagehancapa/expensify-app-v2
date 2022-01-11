@@ -1,4 +1,4 @@
-import { getVisibleExpenses } from "../selectors";
+import { getVisibleExpenses, getTotalExpense } from "../selectors";
 import expenses from "../../../fixtures/expenses";
 
 test("should filter by text value", () => {
@@ -56,4 +56,19 @@ test("should sort by amount", () => {
   };
   const result = getVisibleExpenses(expenses, filters);
   expect(result).toEqual([expenses[1], expenses[2], expenses[0]]);
+});
+
+test("should return 0 if no expenses", () => {
+  const res = getTotalExpense([]);
+  expect(res).toBe(0);
+});
+
+test("should correctly add up a single expense", () => {
+  const res = getTotalExpense([expenses[0]]);
+  expect(res).toBe(195);
+});
+
+test("should correctly add up multiple expenses", () => {
+  const res = getTotalExpense(expenses);
+  expect(res).toBe(114195);
 });

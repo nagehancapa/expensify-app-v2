@@ -1,6 +1,9 @@
 export const selectExpenses = (state) => state.expenses;
-export const visibleExpenses = (state) =>
+export const selectVisibleExpenses = (state) =>
   getVisibleExpenses(state.expenses, state.filters);
+
+export const selectTotalExpense = (state) =>
+  getTotalExpense(getVisibleExpenses(state.expenses, state.filters));
 
 // Get visible expenses
 // destructured filters
@@ -31,4 +34,10 @@ export const getVisibleExpenses = (
         return null;
       }
     });
+};
+
+export const getTotalExpense = (expenses) => {
+  return expenses
+    .map((expense) => expense.amount)
+    .reduce((previousValue, currentValue) => previousValue + currentValue, 0);
 };

@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { visibleExpenses } from "../store/expenses/selectors";
+import { selectVisibleExpenses } from "../store/expenses/selectors";
 import ExpenseListItem from "./ExpenseListItem";
 
 const ExpenseList = (props) => {
-  const expenses = useSelector(visibleExpenses);
+  const expenses = useSelector(selectVisibleExpenses);
 
   return (
     <div>
