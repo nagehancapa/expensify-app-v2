@@ -10,12 +10,13 @@ import { addExpense } from "./store/expenses/actions";
 import "./styles/styles.scss";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
+import "./firebase/firebase";
 
 store.dispatch(addExpense({ description: "Water bill", amount: 4500 }));
 store.dispatch(addExpense({ description: "Gas bill", createdAt: 1000 }));
 store.dispatch(addExpense({ description: "Rent", amount: 109500 }));
 
-console.log(store.getState());
+// console.log(store.getState());
 
 ReactDOM.render(
   <React.StrictMode>

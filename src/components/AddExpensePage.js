@@ -2,14 +2,14 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ExpenseForm from "./ExpenseForm";
-import { addExpense } from "../store/expenses/actions";
+import { startAddExpense } from "../store/expenses/actions";
 
 const AddExpensePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   function onSubmit(expense) {
-    dispatch(addExpense(expense));
+    dispatch(startAddExpense(expense));
     navigate("/");
   }
 
