@@ -1,4 +1,4 @@
-import { push, ref, set, onValue } from "firebase/database";
+import { push, ref, set } from "firebase/database";
 import db from "../../firebase/firebase";
 
 // ADD_EXPENSE
@@ -21,16 +21,16 @@ export const startAddExpense = (expenseData = {}) => {
       amount,
       createdAt,
     };
-    set(push(ref(db, "expenses")), expense)
-      .then((snapshot) => {
-        console.log(snapshot.val());
-        // // dispatch to change redux store
-        // dispatch(
-        //   addExpense({
-        //     id: snapshot.key,
-        //     ...expense,
-        //   })
-        // );
+    const newRef = push(ref(db, "expenses"));
+    set(newRef, expense)
+      .then(() => {
+        // dispatch to change redux store
+        dispatch(
+          addExpense({
+            id: newRef.key,
+            ...expense,
+          })
+        );
       })
       .catch((e) => {
         console.log("This failed.", e);
