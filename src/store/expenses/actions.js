@@ -22,7 +22,7 @@ export const startAddExpense = (expenseData = {}) => {
       createdAt,
     };
     const newRef = push(ref(db, "expenses"));
-    set(newRef, expense)
+    return set(newRef, expense)
       .then(() => {
         // dispatch to change redux store
         dispatch(
