@@ -24,3 +24,7 @@ yarn-error.log*
 
 # 
 package-ext-aft-eject.json
+
+#
+.env.test
+.env.development
