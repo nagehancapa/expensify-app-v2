@@ -1,4 +1,4 @@
-import { push, ref, set, get } from "firebase/database";
+import { push, ref, set, get, remove } from "firebase/database";
 import db from "../../firebase/firebase";
 
 // ADD_EXPENSE
@@ -43,6 +43,18 @@ export const removeExpense = ({ id } = {}) => ({
   type: "REMOVE_EXPENSE",
   id,
 });
+
+export const startRemoveExpense = ({ id } = {}) => {
+  return (dispatch) => {
+    return remove(ref(db, `expenses/${id}`))
+      .then(() => {
+        dispatch(removeExpense({ id }));
+      })
+      .catch((e) => {
+        console.log("Did not remove data.", e);
+      });
+  };
+};
 
 // EDIT_EXPENSE
 export const editExpense = (id, updates) => ({
