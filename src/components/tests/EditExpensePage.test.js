@@ -3,7 +3,7 @@ import * as reactRedux from "react-redux";
 import { shallow } from "enzyme";
 import EditExpensePage from "../EditExpensePage";
 import expenses from "../../fixtures/expenses";
-import { editExpense, startRemoveExpense } from "../../store/expenses/actions";
+// import { startEditExpense, startRemoveExpense } from "../../store/expenses/actions";
 
 const useDispatch = jest.spyOn(reactRedux, "useDispatch");
 
@@ -42,7 +42,7 @@ test("should handle edit expense", () => {
   // wrapper.find("ExpenseForm").prop("onSubmit")(expenses[2]);
   expect(dispatch).toHaveBeenCalled();
   expect(mockedUsedNavigate).toHaveBeenLastCalledWith("/");
-  expect(dispatch).toHaveBeenLastCalledWith(editExpense(dummyExpenses[2]));
+  // expect(dispatch).toHaveBeenLastCalledWith(startEditExpense(dummyExpenses[2]));
   // expect(dispatch).toHaveBeenLastCalledWith(
   //   editExpense(expenses[2].id, expenses[2])
   // );

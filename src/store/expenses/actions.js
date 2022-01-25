@@ -1,4 +1,4 @@
-import { push, ref, set, get, remove } from "firebase/database";
+import { push, ref, set, get, remove, update } from "firebase/database";
 import db from "../../firebase/firebase";
 
 // ADD_EXPENSE
@@ -62,6 +62,18 @@ export const editExpense = (id, updates) => ({
   id,
   updates,
 });
+
+export const startEditExpense = (id, updates) => {
+  return (dispatch) => {
+    return update(ref(db, `expenses/${id}`), updates)
+      .then(() => {
+        dispatch(editExpense(id, updates));
+      })
+      .catch((e) => {
+        console.log("Did not edit data.", e);
+      });
+  };
+};
 
 // SET_EXPENSES
 export const setExpenses = (expenses) => ({
