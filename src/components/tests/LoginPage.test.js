@@ -1,7 +1,7 @@
 import React from "react";
 import * as reactRedux from "react-redux";
 import { shallow } from "enzyme";
-import Header from "../Header";
+import LoginPage from "../LoginPage";
 
 // Mock useDispatch hook
 const useDispatch = jest.spyOn(reactRedux, "useDispatch");
@@ -15,20 +15,15 @@ beforeEach(() => {
   useDispatch.mockClear();
 });
 
-test("should render Header correctly", () => {
-  const wrapper = shallow(<Header />);
+test("should render LoginPage correctly", () => {
+  const wrapper = shallow(<LoginPage />);
   expect(wrapper).toMatchSnapshot();
-
-  // expect(wrapper.find("h1").text()).toBe("Expensify");
-  // const renderer = new ReactShallowRenderer();
-  // renderer.render(<Header />);
-  // expect(renderer.getRenderOutput()).toMatchSnapshot();
 });
 
 test("should call onClick", () => {
   const dispatch = jest.fn();
   useDispatch.mockReturnValue(dispatch);
-  const wrapper = shallow(<Header />);
+  const wrapper = shallow(<LoginPage />);
   wrapper.find("button").simulate("click");
   expect(dispatch).toHaveBeenCalled();
 });

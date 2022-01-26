@@ -11,6 +11,7 @@ import "./styles/styles.scss";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
 import "./firebase/firebase";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const jsx = (
   <React.StrictMode>
@@ -26,6 +27,15 @@ ReactDOM.render(<p>Loading...</p>, document.getElementById("root"));
 
 store.dispatch(startSetExpenses()).then(() => {
   ReactDOM.render(jsx, document.getElementById("root"));
+});
+
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("log in");
+  } else {
+    console.log("log out");
+  }
 });
 
 // If you want to start measuring performance in your app, pass a function

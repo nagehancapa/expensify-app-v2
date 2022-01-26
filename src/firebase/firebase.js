@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
 import { getDatabase } from "firebase/database";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -19,8 +20,9 @@ const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
 const db = getDatabase();
+const googleAuthProvider = new GoogleAuthProvider();
 
-export { app, db as default };
+export { app, googleAuthProvider, db as default };
 
 // onValue(
 //   ref(db, "expenses"),
