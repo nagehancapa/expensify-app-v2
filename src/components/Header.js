@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <header>
       <h1>Expensify</h1>
-      <NavLink end to="/">
+      <NavLink end to="/dashboard">
         Dashboard
       </NavLink>
       <NavLink end to="/create">

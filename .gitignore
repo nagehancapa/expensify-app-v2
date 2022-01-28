@@ -28,3 +28,4 @@ package-ext-aft-eject.json
 #
 .env.test
 .env.development
+.env.production
