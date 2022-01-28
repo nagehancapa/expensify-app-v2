@@ -7,7 +7,7 @@ exports[`should render Header correctly 1`] = `
   </h1>
   <NavLink
     end={true}
-    to="/dashboard"
+    to="/"
   >
     Dashboard
   </NavLink>

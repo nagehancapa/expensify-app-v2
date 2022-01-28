@@ -15,6 +15,13 @@ beforeEach(() => {
   useDispatch.mockClear();
 });
 
+const mockedUsedNavigate = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockedUsedNavigate,
+}));
+
 test("should render Header correctly", () => {
   const wrapper = shallow(<Header />);
   expect(wrapper).toMatchSnapshot();

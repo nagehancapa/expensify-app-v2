@@ -7,6 +7,7 @@ import * as serviceWorker from "./serviceWorker";
 import store from "./store";
 import { Provider } from "react-redux";
 import { startSetExpenses } from "./store/expenses/actions";
+import { login, logout } from "./store/user/actions";
 import "./styles/styles.scss";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
@@ -22,19 +23,27 @@ const jsx = (
     </Router>
   </React.StrictMode>
 );
+let hasRendered = false;
+const renderApp = () => {
+  if (!hasRendered) {
+    ReactDOM.render(jsx, document.getElementById("root"));
+    hasRendered = true;
+  }
+};
 
 ReactDOM.render(<p>Loading...</p>, document.getElementById("root"));
-
-store.dispatch(startSetExpenses()).then(() => {
-  ReactDOM.render(jsx, document.getElementById("root"));
-});
 
 const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    console.log("log in");
+    console.log("uid", user.uid);
+    store.dispatch(login(user.uid));
+    store.dispatch(startSetExpenses()).then(() => {
+      renderApp();
+    });
   } else {
-    console.log("log out");
+    store.dispatch(logout());
+    renderApp();
   }
 });
 

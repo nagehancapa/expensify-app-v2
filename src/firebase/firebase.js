@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
 import { getDatabase } from "firebase/database";
 import { GoogleAuthProvider } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -22,7 +23,16 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const googleAuthProvider = new GoogleAuthProvider();
 
-export { app, googleAuthProvider, db as default };
+const auth = getAuth(app);
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     console.log("log in");
+//   } else {
+//     console.log("log out");
+//   }
+// });
+
+export { auth, app, googleAuthProvider, db as default };
 
 // onValue(
 //   ref(db, "expenses"),
