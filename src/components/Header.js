@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { startLogout } from "../store/user/actions";
 import { useNavigate } from "react-router-dom";
@@ -21,15 +21,15 @@ const Header = () => {
   }, [user, navigate]);
 
   return (
-    <header>
-      <h1>Expensify</h1>
-      <NavLink end to="/dashboard">
-        Dashboard
-      </NavLink>
-      <NavLink end to="/create">
-        Create Expense
-      </NavLink>
-      <button onClick={onClick}>Logout</button>
+    <header className="header">
+      <div className="content-container">
+        <div className="header__content">
+          <Link className="header__title" to="/dashboard">
+            <h1>Expensify</h1>
+          </Link>
+          <button onClick={onClick}>Logout</button>
+        </div>
+      </div>
     </header>
   );
 };
