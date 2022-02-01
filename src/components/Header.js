@@ -27,7 +27,9 @@ const Header = () => {
           <Link className="header__title" to="/dashboard">
             <h1>Expensify</h1>
           </Link>
-          <button onClick={onClick}>Logout</button>
+          <button className="button button--link" onClick={onClick}>
+            Logout
+          </button>
         </div>
       </div>
     </header>
