@@ -52,18 +52,21 @@ const ExpenseForm = (props) => {
           type="text"
           placeholder="Description"
           autoFocus
+          className="text-input"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
         <input
           type="text"
           placeholder="Amount"
+          className="text-input"
           value={amount}
           onChange={onAmountChange}
         />
         <DatePicker value={createdAt} onChange={onDateChange} />
         <textarea
           placeholder="Add a note for your expense (optional)"
+          className="textarea"
           value={note}
           onChange={(e) => setNote(e.target.value)}
         ></textarea>

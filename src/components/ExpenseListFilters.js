@@ -43,10 +43,20 @@ const ExpenseListFilters = (props) => {
     <div className="content-container">
       <div className="input-group">
         <div className="input-group__item">
-          <input type="text" value={filters.text} onChange={onTextChange} />
+          <input
+            type="text"
+            className="text-input"
+            placeholder="Search expenses"
+            value={filters.text}
+            onChange={onTextChange}
+          />
         </div>
         <div className="input-group__item">
-          <select value={filters.sortBy} onChange={onSortChange}>
+          <select
+            className="select"
+            value={filters.sortBy}
+            onChange={onSortChange}
+          >
             <option value="date">Date</option>
             <option value="amount">Amount</option>
           </select>

@@ -1,0 +1,18 @@
+// don't use input selector to not change the third party librarys' style
+.text-input {
+  border: thin solid gray;
+  height: 29px;
+  font-size: $font-size-large;
+  font-weight: 300;
+  padding: $small-size;
+}
+
+.select {
+  @extend .text-input;
+  background: white;
+}
+
+.textarea {
+  @extend .text-input;
+  height: 10rem;
+}
