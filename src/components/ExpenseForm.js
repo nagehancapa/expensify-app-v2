@@ -45,34 +45,34 @@ const ExpenseForm = (props) => {
   }
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        {error && <p>{error}</p>}
-        <input
-          type="text"
-          placeholder="Description"
-          autoFocus
-          className="text-input"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Amount"
-          className="text-input"
-          value={amount}
-          onChange={onAmountChange}
-        />
-        <DatePicker value={createdAt} onChange={onDateChange} />
-        <textarea
-          placeholder="Add a note for your expense (optional)"
-          className="textarea"
-          value={note}
-          onChange={(e) => setNote(e.target.value)}
-        ></textarea>
-        <button>Add Expense</button>
-      </form>
-    </div>
+    <form className="form" onSubmit={onSubmit}>
+      {error && <p className="form__error">{error}</p>}
+      <input
+        type="text"
+        placeholder="Description"
+        autoFocus
+        className="text-input"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Amount"
+        className="text-input"
+        value={amount}
+        onChange={onAmountChange}
+      />
+      <DatePicker value={createdAt} onChange={onDateChange} />
+      <textarea
+        placeholder="Add a note for your expense (optional)"
+        className="textarea"
+        value={note}
+        onChange={(e) => setNote(e.target.value)}
+      ></textarea>
+      <div>
+        <button className="button">Save Expense</button>
+      </div>
+    </form>
   );
 };
 
