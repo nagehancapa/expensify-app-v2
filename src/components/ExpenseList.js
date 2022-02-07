@@ -13,13 +13,17 @@ const ExpenseList = (props) => {
         <div className="show-for-desktop">Expense</div>
         <div className="show-for-desktop">Amount</div>
       </div>
-      {!expenses.length ? (
-        <p>No expenses</p>
-      ) : (
-        expenses.map((expense) => {
-          return <ExpenseListItem key={expense.id} {...expense} />;
-        })
-      )}
+      <div className="list-body">
+        {!expenses.length ? (
+          <div className="list-item list-item--message">
+            <span>No expenses</span>
+          </div>
+        ) : (
+          expenses.map((expense) => {
+            return <ExpenseListItem key={expense.id} {...expense} />;
+          })
+        )}
+      </div>
     </div>
   );
 };
