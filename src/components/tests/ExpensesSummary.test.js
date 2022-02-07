@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import expenses from "../../fixtures/expenses";
 import { filters } from "../../fixtures/filters";
 import configureStore from "redux-mock-store";
+import { MemoryRouter } from "react-router-dom";
 
 test("should correctly render ExpensesSummary with 1 expense", () => {
   const initialState = {
@@ -14,7 +15,9 @@ test("should correctly render ExpensesSummary with 1 expense", () => {
   const mockStore = configureStore();
   render(
     <Provider store={mockStore(initialState)}>
-      <ExpensesSummary />
+      <MemoryRouter>
+        <ExpensesSummary />
+      </MemoryRouter>
     </Provider>
   );
   const text = screen.getByRole("heading", {
@@ -31,7 +34,9 @@ test("should correctly render ExpensesSummary with multiple expenses", () => {
   const mockStore = configureStore();
   render(
     <Provider store={mockStore(initialState)}>
-      <ExpensesSummary />
+      <MemoryRouter>
+        <ExpensesSummary />
+      </MemoryRouter>
     </Provider>
   );
   const text = screen.getByRole("heading", {
