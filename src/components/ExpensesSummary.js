@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import numeral from "numeral";
 import "numeral/locales/nl-nl";
 import {
@@ -23,11 +23,9 @@ const ExpensesSummary = () => {
           <span>{formattedExpensesTotal}</span>
         </h1>
         <div className="page-header__actions">
-          <BrowserRouter>
-            <Link className="button" to="/create">
-              Add Expense
-            </Link>
-          </BrowserRouter>
+          <Link className="button" to="/create">
+            Add Expense
+          </Link>
         </div>
       </div>
     </div>
