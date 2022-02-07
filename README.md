@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+## Expensify App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### What is this app about?
 
-## Available Scripts
+Expensify app is a web app. Users can put up their expenses and track them. With this app they can manage their expenses create savings. You can use this app with your exist goodle account. No need to make another registration.
+I've built this app throught the course of The Complete React Developer Course by Andrew Mead. But I used the React 17 with create react app. I changed the components and regarding test files. I wrote the components as functional components.
 
-In the project directory, you can run:
+Check out the website [here](https://cra-expensify-app.herokuapp.com/)
 
-### `yarn start`
+If you'd like to play around with the app, you can login with your google account.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### App demo
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![App demo](https://github.com/nagehancapa/expensify-app-v2/blob/master/ReadMeFiles/expensify.gif)
 
-### `yarn test`
+### Pages overview:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- a login page
+- a dashboard page with all the list of expenses,
+- a create expense page for adding new expense,
+- an edit expense page for editing of an existing expense,
+- a loading page
+- a not found page.
 
-### `yarn build`
+### User stories
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- As a user I can see a list of expenses when I login. I don't see login button when I logged in.
+- As a user I can search existing expense, I can sort expenses by date or amount.
+- As a user I can filter expenses with a date range.
+- As a user I can edit an existing expense's description, amount, date or note and save the expense. When I edit an expense the page goes to the dashboard page.
+- As a user I can remove an existing expense. When I remove an expense the page goes to the dashboard page again.
+- As a user I can add new expenses. When I add an expense the page goes to the dashboard page again.
+- As a user I can logout. When I logged out I can see the login button again.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Goals for this project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- demonstrate some of my skills I've learned about the frontend development.
+- practice refactoring an existing app with newest versions of technologies.
+- practice writing tests to funtional components using jest and react testing library.
+- extend my knowledge with facing the problems when writing tests to new styled components.
 
-### `yarn eject`
+### Used technologies
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Frontend
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React
+- Redux
+- Jest
+- React testing library
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Backend
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Node.js
+- Express REST API
+- Firebase
