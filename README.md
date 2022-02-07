@@ -5,7 +5,7 @@
 Expensify app is a web app. Users can enter their expenses and track them. You can use this app with your existing google account. No need to make another registration.
 I've built this app throught the course of The Complete React Developer Course by Andrew Mead. His original work was based on React 15, but I used the React 17 with "create react app". I changed the components and regarding test files. I rewrote the components as functional components.
 
-Check out the website [here](https://cra-expensify-app.herokuapp.com/)
+Check out the website [here](https://cra-expensify-app.herokuapp.com/).
 
 ### App demo
 
@@ -17,7 +17,7 @@ Check out the website [here](https://cra-expensify-app.herokuapp.com/)
 - a dashboard page with all the list of expenses,
 - a create expense page for adding new expense,
 - an edit expense page for editing of an existing expense,
-- a loading page
+- a loading page,
 - a not found page.
 
 ### User stories
