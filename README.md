@@ -2,7 +2,7 @@
 
 ### What is this app about?
 
-Expensify app is a web app. Users can put up their expenses and track them. With this app they can manage their expenses create savings. You can use this app with your exist goodle account. No need to make another registration.
+Expensify app is a web app. Users can put up their expenses and track them. With this app they can manage their expenses create savings. You can use this app with your exist google account. No need to make another registration.
 I've built this app throught the course of The Complete React Developer Course by Andrew Mead. But I used the React 17 with create react app. I changed the components and regarding test files. I wrote the components as functional components.
 
 Check out the website [here](https://cra-expensify-app.herokuapp.com/)
