@@ -17,7 +17,9 @@ test("should correctly render ExpensesSummary with 1 expense", () => {
       <ExpensesSummary />
     </Provider>
   );
-  const text = screen.getByText("Viewing 1 expense totaling € 1.95");
+  const text = screen.getByRole("heading", {
+    name: /Viewing 1 expense totaling € 1.95/i,
+  });
   expect(text).toBeInTheDocument();
 });
 
@@ -32,6 +34,8 @@ test("should correctly render ExpensesSummary with multiple expenses", () => {
       <ExpensesSummary />
     </Provider>
   );
-  const text = screen.getByText("Viewing 3 expenses totaling € 1,141.95");
+  const text = screen.getByRole("heading", {
+    name: /Viewing 3 expenses totaling € 1,141.95/i,
+  });
   expect(text).toBeInTheDocument();
 });

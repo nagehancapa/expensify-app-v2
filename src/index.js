@@ -13,6 +13,7 @@ import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
 import "./firebase/firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import LoadingPage from "./components/LoadingPage";
 
 const jsx = (
   <React.StrictMode>
@@ -31,7 +32,7 @@ const renderApp = () => {
   }
 };
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById("root"));
+ReactDOM.render(<LoadingPage />, document.getElementById("root"));
 
 const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
