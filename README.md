@@ -2,12 +2,10 @@
 
 ### What is this app about?
 
-Expensify app is a web app. Users can put up their expenses and track them. With this app they can manage their expenses create savings. You can use this app with your exist google account. No need to make another registration.
-I've built this app throught the course of The Complete React Developer Course by Andrew Mead. But I used the React 17 with create react app. I changed the components and regarding test files. I wrote the components as functional components.
+Expensify app is a web app. Users can enter their expenses and track them. You can use this app with your existing google account. No need to make another registration.
+I've built this app throught the course of The Complete React Developer Course by Andrew Mead. His original work was based on React 15, but I used the React 17 with "create react app". I changed the components and regarding test files. I rewrote the components as functional components.
 
 Check out the website [here](https://cra-expensify-app.herokuapp.com/)
-
-If you'd like to play around with the app, you can login with your google account.
 
 ### App demo
 
@@ -36,7 +34,7 @@ If you'd like to play around with the app, you can login with your google accoun
 
 - demonstrate some of my skills I've learned about the frontend development.
 - practice refactoring an existing app with newest versions of technologies.
-- practice writing tests to funtional components using jest and react testing library.
+- practice writing tests for funtional components using jest and react testing library.
 - extend my knowledge with facing the problems when writing tests to new styled components.
 
 ### Used technologies
